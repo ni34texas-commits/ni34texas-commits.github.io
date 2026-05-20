@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Nazia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: 10rem 2rem 4rem;
+      max-width: 1080px; margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+    }
+    .page-hero p { color: var(--muted); font-size: 1.05rem; max-width: 540px; font-weight: 300; line-height: 1.8; margin-top: 1.5rem; }
+
+    /* BIO GRID */
+    .bio-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; margin-bottom: 5rem; }
+    @media (max-width: 700px) { .bio-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .bio-text p { color: var(--muted); font-size: 0.95rem; line-height: 1.9; margin-bottom: 1.25rem; }
+    .bio-text p strong { color: var(--text); font-weight: 500; }
+
+    /* EDUCATION CARD */
+    .edu-stack { display: flex; flex-direction: column; gap: 1rem; }
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 1.5rem;
+      border-left: 3px solid;
+    }
+    .edu-card.grad { border-left-color: var(--c4); }
+    .edu-card.undergrad { border-left-color: var(--c3); }
+    .edu-card.cert { border-left-color: var(--c1); }
+    .edu-degree { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; }
+    .edu-school { font-size: 0.82rem; color: var(--muted); }
+    .edu-date { font-size: 0.75rem; color: var(--muted); margin-top: 0.5rem; opacity: 0.7; }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+    }
+    .skill-group-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 1.25rem;
+    }
+    .skill-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; }
+    .skill-name { font-size: 0.875rem; color: var(--text); }
+    .bar-bg { width: 90px; height: 3px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 3px; }
+    .bar-ai { background: linear-gradient(90deg, var(--c3), var(--c4)); }
+    .bar-iam { background: linear-gradient(90deg, var(--c1), var(--c2)); }
+    .bar-lang { background: linear-gradient(90deg, var(--c4), var(--c1)); }
+
+    /* EXPERIENCE TIMELINE */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before { content:''; position:absolute; left:0; top:0.5rem; bottom:0; width:1px; background: var(--border); }
+    .tl-item { position: relative; margin-bottom: 2.5rem; }
+    .tl-dot {
+      position: absolute; left: -2rem; top: 0.35rem;
+      width: 10px; height: 10px; border-radius: 50%;
+      margin-left: -4px;
+    }
+    .tl-dot.c1 { background: var(--c1); box-shadow: 0 0 8px rgba(255,95,109,0.6); }
+    .tl-dot.c4 { background: var(--c4); box-shadow: 0 0 8px rgba(110,143,255,0.6); }
+    .tl-dot.c3 { background: var(--c3); box-shadow: 0 0 8px rgba(67,230,181,0.6); }
+    .tl-role { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.2rem; }
+    .tl-org { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; }
+    .tl-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">NZ.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label">About Me</p>
+  <h1>Researcher.<br><span class="grad-text">Builder. Defender.</span></h1>
+  <p>CS graduate student at Texas State University — pushing the boundary between AI systems research and enterprise security engineering.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section-wrap">
+
+  <!-- BIO + EDUCATION -->
+  <div class="bio-grid">
+    <div class="bio-text">
+      <p>I'm a Computer Science senior and graduate student at <strong>Texas State University</strong> (GPA 3.6, graduating May 2026), with a dual focus that most people don't see together: <strong>GPU-accelerated AI systems</strong> and <strong>enterprise Identity & Access Management</strong>.</p>
+      <p>My research, under Professor <strong>Apan Qasem</strong>, centers on <strong>GPULLM</strong> — an AI-driven CUDA memory placement recommendation system that uses LangChain and CodeLlama to automatically optimize HPC workloads on Texas State's Ada cluster. The project achieves <strong>100% accuracy</strong> across six HeCBench kernels.</p>
+      <p>Professionally, I've spent 2+ years at <strong>BNY Mellon</strong> as an IAM Administrator, managing access lifecycle, provisioning workflows, and access reviews using <strong>SailPoint IdentityIQ v8.1</strong> — for which I hold an official certification.</p>
+      <p>I also completed a software development internship at <strong>Apple</strong>, sharpening my engineering fundamentals in a world-class production environment.</p>
+    </div>
+    <div>
+      <p class="section-label" style="margin-bottom:1.25rem">Education & Certs</p>
+      <div class="edu-stack">
+        <div class="edu-card grad">
+          <div class="edu-degree">M.S. Computer Science</div>
+          <div class="edu-school">Texas State University</div>
+          <div class="edu-date">Expected May 2026 · GPA 3.6</div>
+        </div>
+        <div class="edu-card undergrad">
+          <div class="edu-degree">B.S. Computer Science</div>
+          <div class="edu-school">Texas State University</div>
+          <div class="edu-date">May 2026</div>
+        </div>
+        <div class="edu-card cert">
+          <div class="edu-degree">SailPoint IdentityIQ v8.1</div>
+          <div class="edu-school">Certified IAM Specialist</div>
+          <div class="edu-date">Active Certification</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <p class="section-label">Skills</p>
+  <h2 class="section-title" style="margin-bottom:2rem">Technical Stack</h2>
+  <div class="skills-grid" id="skills">
+    <div class="skill-group">
+      <div class="skill-group-title" style="color: var(--c3)">AI & GPU Systems</div>
+      <div class="skill-row"><span class="skill-name">Python / CUDA</span><div class="bar-bg"><div class="bar-fill bar-ai" style="width:90%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">LangChain / Ollama</span><div class="bar-bg"><div class="bar-fill bar-ai" style="width:85%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">CodeLlama / LLMs</span><div class="bar-bg"><div class="bar-fill bar-ai" style="width:80%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">HPC / Ada Cluster</span><div class="bar-bg"><div class="bar-fill bar-ai" style="width:78%"></div></div></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title" style="color: var(--c1)">IAM & Security</div>
+      <div class="skill-row"><span class="skill-name">SailPoint IdentityIQ</span><div class="bar-bg"><div class="bar-fill bar-iam" style="width:92%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Access Lifecycle Mgmt</span><div class="bar-bg"><div class="bar-fill bar-iam" style="width:85%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Provisioning Workflows</span><div class="bar-bg"><div class="bar-fill bar-iam" style="width:82%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Cybersecurity Principles</span><div class="bar-bg"><div class="bar-fill bar-iam" style="width:75%"></div></div></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title" style="color: var(--c4)">Languages & Dev</div>
+      <div class="skill-row"><span class="skill-name">Python</span><div class="bar-bg"><div class="bar-fill bar-lang" style="width:92%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">JavaScript / Node.js</span><div class="bar-bg"><div class="bar-fill bar-lang" style="width:72%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">SQL</span><div class="bar-bg"><div class="bar-fill bar-lang" style="width:74%"></div></div></div>
+      <div class="skill-row"><span class="skill-name">Bash / Linux</span><div class="bar-bg"><div class="bar-fill bar-lang" style="width:78%"></div></div></div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <p class="section-label" style="margin-top:1rem">Experience</p>
+  <h2 class="section-title" style="margin-bottom:2.5rem">Timeline</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot c3"></div>
+      <div class="tl-role">AI/ML Researcher — GPULLM</div>
+      <div class="tl-org">Texas State University · Prof. Apan Qasem &nbsp;·&nbsp; 2024 – Present</div>
+      <div class="tl-desc">Developed an automated CUDA benchmarking pipeline and LangChain agent (CodeLlama via Ollama) for AI-driven memory placement recommendations. Achieved 100% accuracy on six HeCBench kernels. Runs on Texas State's Ada HPC cluster (sm_60).</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot c1"></div>
+      <div class="tl-role">IAM Administrator</div>
+      <div class="tl-org">BNY Mellon &nbsp;·&nbsp; 2022 – 2024</div>
+      <div class="tl-desc">Managed enterprise identity and access using SailPoint IdentityIQ across large-scale financial infrastructure. Implemented lifecycle policies, automated provisioning, and led periodic access certification campaigns.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot c4"></div>
+      <div class="tl-role">Software Development Intern</div>
+      <div class="tl-org">Apple &nbsp;·&nbsp; Summer 2023</div>
+      <div class="tl-desc">Contributed to production software in a world-class engineering environment, strengthening full-stack development fundamentals and exposure to large-scale systems.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem">
+    <a href="work.html" class="btn btn-grad">See My Projects →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Nazia &nbsp;·&nbsp; <a href="mailto:naziaislam202519@gmail.com">naziaislam202519@gmail.com</a> &nbsp;·&nbsp; <a href="https://github.com/ni34texas-commits" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>

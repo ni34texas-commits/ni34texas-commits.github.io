@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Instrument+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --surface: #f5f5fa;
+  --surface2: #ededf5;
+  --border: rgba(0,0,0,0.09);
+  --text: #111122;
+  --muted: #6b6888;
+  --c1: #ff5f6d;   /* coral-red */
+  --c2: #f7a559;   /* amber */
+  --c3: #13c49a;   /* teal */
+  --c4: #4a6fff;   /* blue-violet */
+  --grad: linear-gradient(135deg, #ff5f6d, #f7a559, #13c49a, #4a6fff);
+  --grad2: linear-gradient(135deg, #ff5f6d 0%, #4a6fff 100%);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 4rem;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: 0.35rem;
+  font-size: 0.875rem;
+  font-family: 'Instrument Sans', sans-serif;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.22s;
+}
+.btn-grad {
+  background: var(--grad2);
+  color: #fff;
+}
+.btn-grad:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+.btn-outline:hover { border-color: rgba(110,143,255,0.5); background: rgba(110,143,255,0.07); }
+
+/* ── SECTION WRAPPER ── */
+.section-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 7rem 2rem;
+}
+.section-label {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px; height: 2px;
+  background: var(--grad2);
+  border-radius: 2px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.section-body {
+  color: var(--muted);
+  max-width: 560px;
+  font-weight: 300;
+  line-height: 1.85;
+  margin-bottom: 3rem;
+}
+
+/* ── GRADIENT TEXT ── */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── DIVIDER ── */
+.divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+/* ── PILL / TAG ── */
+.pill {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.28rem 0.8rem;
+  border-radius: 2rem;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.pill-c1 { border-color: rgba(255,95,109,0.4); color: #ff8f99; background: rgba(255,95,109,0.07); }
+.pill-c3 { border-color: rgba(67,230,181,0.4); color: #43e6b5; background: rgba(67,230,181,0.07); }
+.pill-c4 { border-color: rgba(110,143,255,0.4); color: #8fa8ff; background: rgba(110,143,255,0.07); }
+.pill-c2 { border-color: rgba(247,197,159,0.4); color: #f7c59f; background: rgba(247,197,159,0.07); }
+
+/* ── CARD ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: border-color 0.22s, background 0.22s, transform 0.22s;
+}
+.card:hover {
+  border-color: rgba(110,143,255,0.28);
+  background: var(--surface2);
+  transform: translateY(-3px);
+}
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+footer a { color: var(--muted); text-decoration: none; }
+footer a:hover { color: var(--text); }
+
+@media (max-width: 700px) {
+  nav { padding: 1rem 1.25rem; }
+  .section-wrap { padding: 5rem 1.25rem; }
+}

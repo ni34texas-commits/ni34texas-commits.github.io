@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nazia — CS researcher specializing in AI/GPU computing and Identity & Access Management.">
+  <title>Nazia — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 40%, rgba(255,95,109,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 80% 60%, rgba(74,111,255,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(19,196,154,0.06) 0%, transparent 60%);
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c3); display: inline-block; animation: blink 2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:0.4} 50%{opacity:1} }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(3.2rem, 9vw, 6.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--muted);
+      max-width: 560px; margin: 0 auto 2.5rem;
+      font-weight: 300; line-height: 1.8;
+    }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* COLOR BAR */
+    .color-bar {
+      width: 60px; height: 4px; border-radius: 4px;
+      background: var(--grad);
+      margin: 0 auto 2rem;
+    }
+
+    /* DUAL TRACK */
+    .track-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 5rem;
+    }
+    @media (max-width: 640px) { .track-grid { grid-template-columns: 1fr; } }
+    .track-card {
+      border-radius: 1.25rem;
+      padding: 2.25rem;
+      border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .track-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    }
+    .track-ai::before { background: linear-gradient(90deg, var(--c3), var(--c4)); }
+    .track-iam::before { background: linear-gradient(90deg, var(--c1), var(--c2)); }
+    .track-ai { background: rgba(67,230,181,0.04); }
+    .track-iam { background: rgba(255,95,109,0.04); }
+    .track-icon {
+      font-size: 2rem; margin-bottom: 1rem;
+    }
+    .track-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem; font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .track-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+    .track-card .pill-row { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    /* QUICK STATS */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+    .stat { background: var(--surface); padding: 1.75rem 1.5rem; }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.2rem; font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.04em; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">NZ.</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div style="position:relative">
+    <div class="hero-eyebrow"><span class="dot"></span> Open to opportunities · May 2026</div>
+    <h1><span class="grad-text">Nazia</span><br>Builds Intelligent<br>Systems.</h1>
+    <div class="color-bar"></div>
+    <p class="hero-sub">CS researcher at Texas State University — AI/GPU computing meets Identity & Access Management. I make infrastructure smarter and more secure.</p>
+    <div class="cta-row">
+      <a href="work.html" class="btn btn-grad">View My Work →</a>
+      <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- DUAL TRACK -->
+<div class="section-wrap">
+  <p class="section-label">What I Do</p>
+  <h2 class="section-title">Two tracks.<br>One mission.</h2>
+  <p class="section-body">My work lives at the crossroads of high-performance AI systems and enterprise security — applying research-grade thinking to real engineering problems.</p>
+
+  <div class="track-grid">
+    <div class="track-card track-ai">
+      <div class="track-icon">⚡</div>
+      <h3 style="color: #43e6b5">AI / GPU Research</h3>
+      <p>Building LLM-powered tools that optimize CUDA memory placement on HPC clusters. Research under Prof. Apan Qasem on the Ada GPU server at Texas State.</p>
+      <div class="pill-row">
+        <span class="pill pill-c3">LangChain</span>
+        <span class="pill pill-c3">CUDA</span>
+        <span class="pill pill-c3">CodeLlama</span>
+        <span class="pill pill-c3">HPC</span>
+      </div>
+    </div>
+    <div class="track-card track-iam">
+      <div class="track-icon">🔐</div>
+      <h3 style="color: #ff8f99">Identity & Access Mgmt</h3>
+      <p>2+ years managing enterprise IAM at BNY Mellon using SailPoint IdentityIQ — provisioning, access reviews, and lifecycle policy across financial-scale infrastructure.</p>
+      <div class="pill-row">
+        <span class="pill pill-c1">SailPoint v8.1</span>
+        <span class="pill pill-c1">IAM</span>
+        <span class="pill pill-c1">Cybersecurity</span>
+        <span class="pill pill-c1">BNY Mellon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">3.6</div><div class="stat-label">GPA · Texas State</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">GPULLM benchmark accuracy</div></div>
+    <div class="stat"><div class="stat-num">v8.1</div><div class="stat-label">SailPoint certified</div></div>
+    <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years enterprise IAM</div></div>
+  </div>
+
+  <div style="display:flex; gap:1rem; flex-wrap:wrap">
+    <a href="work.html" class="btn btn-grad">See All Projects →</a>
+    <a href="about.html" class="btn btn-outline">About Me</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Nazia &nbsp;·&nbsp; <a href="mailto:naziaislam202519@gmail.com">naziaislam202519@gmail.com</a> &nbsp;·&nbsp; <a href="https://github.com/ni34texas-commits" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>

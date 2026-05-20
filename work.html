@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work — Nazia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: 10rem 2rem 4rem;
+      max-width: 1080px; margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+    }
+    .page-hero p { color: var(--muted); font-size: 1.05rem; max-width: 540px; font-weight: 300; line-height: 1.8; margin-top: 1.5rem; }
+
+    /* FILTER TABS */
+    .filter-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 3rem; }
+    .filter-btn {
+      padding: 0.45rem 1.2rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+    .filter-btn.active, .filter-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.05); }
+    .filter-btn.active { background: rgba(110,143,255,0.12); border-color: rgba(110,143,255,0.4); color: #8fa8ff; }
+
+    /* FEATURED PROJECT */
+    .project-featured {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: border-color 0.22s;
+    }
+    .project-featured:hover { border-color: rgba(110,143,255,0.3); }
+    @media (max-width: 700px) { .project-featured { grid-template-columns: 1fr; } }
+    .project-featured-visual {
+      padding: 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      position: relative; overflow: hidden;
+    }
+    .vis-ai { background: radial-gradient(ellipse at center, rgba(67,230,181,0.15), transparent 70%); border-right: 1px solid var(--border); }
+    .vis-iam { background: radial-gradient(ellipse at center, rgba(255,95,109,0.15), transparent 70%); border-right: 1px solid var(--border); }
+    .project-featured-content { padding: 2.5rem; }
+    .featured-badge {
+      display: inline-block;
+      font-size: 0.65rem; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.75rem; border-radius: 2rem;
+      margin-bottom: 1rem;
+    }
+    .badge-ai { background: rgba(67,230,181,0.1); color: var(--c3); border: 1px solid rgba(67,230,181,0.3); }
+    .badge-iam { background: rgba(255,95,109,0.1); color: var(--c1); border: 1px solid rgba(255,95,109,0.3); }
+    .badge-cs { background: rgba(110,143,255,0.1); color: var(--c4); border: 1px solid rgba(110,143,255,0.3); }
+    .project-featured h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.45rem; font-weight: 700;
+      margin-bottom: 0.75rem; line-height: 1.25;
+    }
+    .project-featured p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.25rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+
+    /* REGULAR PROJECT GRID */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      transition: border-color 0.22s, background 0.22s, transform 0.22s;
+      display: flex; flex-direction: column;
+    }
+    .proj-card:hover { border-color: rgba(110,143,255,0.28); background: var(--surface2); transform: translateY(-3px); }
+    .proj-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .proj-card h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 0.6rem; line-height: 1.3; }
+    .proj-card p { color: var(--muted); font-size: 0.875rem; line-height: 1.75; flex: 1; }
+    .proj-card .pill-row { margin-top: 1.25rem; }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.8rem; color: var(--c4);
+      text-decoration: none; margin-top: 1rem;
+      font-weight: 500;
+      transition: gap 0.2s;
+    }
+    .proj-link:hover { gap: 0.65rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">NZ.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label">Portfolio</p>
+  <h1>Research &<br><span class="grad-text">Projects</span></h1>
+  <p>Selected work across AI systems research, GPU computing, machine learning, and security engineering.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section-wrap">
+
+  <div class="filter-row">
+    <button class="filter-btn active">All</button>
+    <button class="filter-btn">AI / Research</button>
+    <button class="filter-btn">IAM / Security</button>
+    <button class="filter-btn">CS / Algorithms</button>
+  </div>
+
+  <!-- FEATURED: GPULLM -->
+  <div class="project-featured" id="gpullm">
+    <div class="project-featured-visual vis-ai">⚡</div>
+    <div class="project-featured-content">
+      <span class="featured-badge badge-ai">★ Featured · AI / GPU Research</span>
+      <h3>GPULLM — AI-Driven CUDA Memory Placement</h3>
+      <p>Built an automated CUDA benchmarking pipeline (auto_modifier.py) and a LangChain agent (langchain_agent.py) using CodeLlama via Ollama to recommend optimal CUDA memory placement strategies. Evaluated on six HeCBench kernels on Texas State's Ada HPC cluster (sm_60), achieving 100% accuracy.</p>
+      <div class="pill-row">
+        <span class="pill pill-c3">Python</span>
+        <span class="pill pill-c3">LangChain</span>
+        <span class="pill pill-c3">CodeLlama</span>
+        <span class="pill pill-c3">CUDA</span>
+        <span class="pill pill-c3">HPC · sm_60</span>
+        <span class="pill pill-c3">Ollama</span>
+      </div>
+      <a href="https://github.com/ni34texas-commits" class="btn btn-grad" target="_blank">View on GitHub →</a>
+    </div>
+  </div>
+
+  <!-- FEATURED: IAM at BNY -->
+  <div class="project-featured" id="iam">
+    <div class="project-featured-visual vis-iam">🔐</div>
+    <div class="project-featured-content">
+      <span class="featured-badge badge-iam">★ Featured · IAM / Enterprise Security</span>
+      <h3>Enterprise IAM Administration — BNY Mellon</h3>
+      <p>Managed identity and access management for large-scale financial infrastructure using SailPoint IdentityIQ v8.1. Responsibilities included implementing access lifecycle policies, automating provisioning and deprovisioning workflows, leading periodic access reviews and certification campaigns, and ensuring regulatory compliance.</p>
+      <div class="pill-row">
+        <span class="pill pill-c1">SailPoint IdentityIQ</span>
+        <span class="pill pill-c1">v8.1 Certified</span>
+        <span class="pill pill-c1">Provisioning</span>
+        <span class="pill pill-c1">Access Reviews</span>
+        <span class="pill pill-c1">Lifecycle Mgmt</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID PROJECTS -->
+  <div class="projects-grid">
+
+    <div class="proj-card" id="maze">
+      <div class="proj-icon">🗺️</div>
+      <span class="featured-badge badge-cs" style="margin-bottom:0.75rem;font-size:0.65rem">CS · Algorithms</span>
+      <h4>Adaptive Search in Partially Observable Mazes</h4>
+      <p>Implemented a full A* trajectory replanning suite — Repeated Forward A*, Repeated Backward A*, and Adaptive A* — for agents navigating unknown environments. Key findings on tie-breaking heuristics and adaptive memory structures.</p>
+      <div class="pill-row">
+        <span class="pill pill-c4">Python</span>
+        <span class="pill pill-c4">A* Search</span>
+        <span class="pill pill-c4">Heuristics</span>
+        <span class="pill pill-c4">Pathfinding</span>
+      </div>
+      <a href="https://github.com/ni34texas-commits" class="proj-link" target="_blank">View Code →</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-icon">🧠</div>
+      <span class="featured-badge badge-ai" style="margin-bottom:0.75rem;font-size:0.65rem">AI · Machine Learning</span>
+      <h4>Naive Bayes & Perceptron Image Classifiers</h4>
+      <p>Designed and implemented from scratch a Naive Bayes classifier and a multi-class Perceptron for image recognition. Built a full Python pipeline including feature extraction, training, evaluation, and a written analysis report.</p>
+      <div class="pill-row">
+        <span class="pill pill-c3">Python</span>
+        <span class="pill pill-c3">Naive Bayes</span>
+        <span class="pill pill-c3">Perceptron</span>
+        <span class="pill pill-c3">ML</span>
+      </div>
+      <a href="https://github.com/ni34texas-commits" class="proj-link" target="_blank">View Code →</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-icon">💼</div>
+      <span class="featured-badge badge-cs" style="margin-bottom:0.75rem;font-size:0.65rem">Industry · SWE</span>
+      <h4>Software Development Intern — Apple</h4>
+      <p>Contributed to production software at Apple, gaining exposure to large-scale systems engineering, code quality practices, and the product development lifecycle at one of the world's most demanding engineering organizations.</p>
+      <div class="pill-row">
+        <span class="pill pill-c4">Software Engineering</span>
+        <span class="pill pill-c4">Production Systems</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:1rem">
+    <a href="https://github.com/ni34texas-commits" class="btn btn-outline" target="_blank">See All on GitHub →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Nazia &nbsp;·&nbsp; <a href="mailto:naziaislam202519@gmail.com">naziaislam202519@gmail.com</a> &nbsp;·&nbsp; <a href="https://github.com/ni34texas-commits" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>

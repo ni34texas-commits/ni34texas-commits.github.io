@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Nazia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      padding: 10rem 2rem 4rem;
+      max-width: 1080px; margin: 0 auto;
+    }
+    .page-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 7vw, 5rem);
+      font-weight: 800; line-height: 1.05;
+    }
+    .page-hero p { color: var(--muted); font-size: 1.05rem; max-width: 540px; font-weight: 300; line-height: 1.8; margin-top: 1.5rem; }
+
+    /* LAYOUT */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 700px) { .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    /* CONTACT LINKS */
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
+    .contact-link-card {
+      display: flex; align-items: center; gap: 1.25rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 1.25rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.22s, background 0.22s, transform 0.22s;
+      color: var(--text);
+    }
+    .contact-link-card:hover { border-color: rgba(110,143,255,0.3); background: var(--surface2); transform: translateX(4px); }
+    .link-icon {
+      width: 42px; height: 42px;
+      border-radius: 0.6rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .link-icon.email { background: rgba(255,95,109,0.12); }
+    .link-icon.github { background: rgba(110,143,255,0.12); }
+    .link-icon.linkedin { background: rgba(67,230,181,0.12); }
+    .link-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .link-value { font-weight: 500; font-size: 0.95rem; margin-top: 0.15rem; }
+    .link-arrow { margin-left: auto; color: var(--muted); font-size: 1.1rem; transition: transform 0.2s; }
+    .contact-link-card:hover .link-arrow { transform: translate(4px,-4px); color: var(--c4); }
+
+    /* OPEN TO */
+    .open-to-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+    .open-to-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .open-to-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      font-size: 0.9rem; color: var(--text);
+    }
+    .open-to-item::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .open-to-item.ai::before { background: var(--c3); box-shadow: 0 0 6px rgba(67,230,181,0.7); }
+    .open-to-item.iam::before { background: var(--c1); box-shadow: 0 0 6px rgba(255,95,109,0.7); }
+    .open-to-item.swe::before { background: var(--c4); box-shadow: 0 0 6px rgba(110,143,255,0.7); }
+    .open-to-item.research::before { background: var(--c2); box-shadow: 0 0 6px rgba(247,197,159,0.7); }
+
+    /* FORM PANEL */
+    .form-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 2.5rem;
+    }
+    .form-panel h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem; font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .form-panel p { color: var(--muted); font-size: 0.875rem; margin-bottom: 2rem; line-height: 1.7; }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: #f0f0f8;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      color: var(--text);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: rgba(110,143,255,0.5);
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-group select option { background: var(--surface); }
+    .form-note { font-size: 0.78rem; color: var(--muted); margin-top: -0.5rem; margin-bottom: 1.5rem; }
+    .submit-row { display: flex; justify-content: flex-end; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">NZ.</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <p class="section-label">Contact</p>
+  <h1>Let's<br><span class="grad-text">Connect.</span></h1>
+  <p>Open to research collaborations, full-time roles, and internships. Whether it's AI systems, IAM/security, or GPU computing — I'd love to hear from you.</p>
+</div>
+
+<hr class="divider">
+
+<div class="section-wrap">
+  <div class="contact-layout">
+
+    <!-- LEFT: Links + Open To -->
+    <div>
+      <p class="section-label" style="margin-bottom:1.25rem">Reach Me</p>
+      <div class="contact-links">
+        <a href="mailto:naziaislam202519@gmail.com" class="contact-link-card">
+          <div class="link-icon email">📧</div>
+          <div>
+            <div class="link-label">Email</div>
+            <div class="link-value">naziaislam202519@gmail.com</div>
+          </div>
+          <div class="link-arrow">↗</div>
+        </a>
+        <a href="https://github.com/ni34texas-commits" class="contact-link-card" target="_blank">
+          <div class="link-icon github">💻</div>
+          <div>
+            <div class="link-label">GitHub</div>
+            <div class="link-value">ni34texas-commits</div>
+          </div>
+          <div class="link-arrow">↗</div>
+        </a>
+        <a href="https://linkedin.com" class="contact-link-card" target="_blank">
+          <div class="link-icon linkedin">🔗</div>
+          <div>
+            <div class="link-label">LinkedIn</div>
+            <div class="link-value">Connect with me</div>
+          </div>
+          <div class="link-arrow">↗</div>
+        </a>
+      </div>
+
+      <div>
+        <div class="open-to-title">Open To</div>
+        <div class="open-to-list">
+          <div class="open-to-item ai">AI/ML Engineering Roles</div>
+          <div class="open-to-item ai">GPU / HPC Research</div>
+          <div class="open-to-item iam">IAM Analyst / Engineer</div>
+          <div class="open-to-item iam">Cybersecurity Engineering</div>
+          <div class="open-to-item swe">Software Engineering (SWE)</div>
+          <div class="open-to-item research">Academic Collaborations</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Form -->
+    <div class="form-panel">
+      <h3>Send a Message</h3>
+      <p>Fill out the form below — I'll get back to you promptly. (Wire this up to Formspree or Netlify Forms to make it functional after uploading.)</p>
+
+      <div class="form-group">
+        <label>Your Name</label>
+        <input type="text" placeholder="Jane Smith">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="jane@company.com">
+      </div>
+      <div class="form-group">
+        <label>Reason for Reaching Out</label>
+        <select>
+          <option value="">Select one...</option>
+          <option>Job Opportunity</option>
+          <option>Research Collaboration</option>
+          <option>Internship</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell me about the opportunity or what you'd like to discuss..."></textarea>
+      </div>
+      <p class="form-note">* To activate this form, sign up at formspree.io and replace the form action with your endpoint.</p>
+      <div class="submit-row">
+        <button class="btn btn-grad" type="submit">Send Message →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Nazia &nbsp;·&nbsp; <a href="mailto:naziaislam202519@gmail.com">naziaislam202519@gmail.com</a> &nbsp;·&nbsp; <a href="https://github.com/ni34texas-commits" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
