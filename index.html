@@ -7,9 +7,11 @@
 <title>Nazia — Portfolio</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* WHITE & MAROON BACKGROUND */
-:root { --bg: #ffffff; --surface: #f9f0f2; }
-body { background: #ffffff !important; color: #1a0a0d !important; }
+/* BLACK BACKGROUND, WHITE FONT */
+:root { --bg: #000000; --surface: #0a0a0a; --muted: #cccccc; }
+body { background: #000000 !important; color: #ffffff !important; }
+body a { color: #ffffff; }
+.hero-sub, .section-body, .track-card p, .stat-label { color: #cccccc !important; }
 
 /* IMAGE BACKGROUND */
 .hero-video-wrap {
@@ -60,8 +62,8 @@ body { background: #ffffff !important; color: #1a0a0d !important; }
   margin-bottom: 1.75rem;
 }
 .hero-photo {
-  width: 180px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -90,7 +92,7 @@ body { background: #ffffff !important; color: #1a0a0d !important; }
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: #ffffff;
+  background: #000000;
   z-index: 1;
 }
 .hero-photo {
@@ -104,7 +106,7 @@ body { background: #ffffff !important; color: #1a0a0d !important; }
   width: 14px; height: 14px;
   border-radius: 50%;
   background: #13c49a;
-  border: 2.5px solid #ffffff;
+  border: 2.5px solid #000000;
   z-index: 4;
   animation: pulse-dot 2.5s ease-in-out infinite;
 }
@@ -214,27 +216,21 @@ body { background: #ffffff !important; color: #1a0a0d !important; }
 
 <!-- HERO -->
 <section class="hero">
-  <!-- BACKGROUND IMAGE -->
-  <div class="hero-video-wrap">
-    <img src="grad_pic2.jpeg" alt="" class="hero-bg-img">
-  </div>
+  
   <div class="hero-glow"></div>
 
   <div style="position:relative; z-index:2;">
     <!-- PROFILE PHOTO -->
     <div class="hero-photo-wrap">
-      <img
-        src="pic_grad.jpeg"
-        alt="Nazia Islam"
-        class="hero-photo"
-      >
+      <img src="pic_grad.jpeg" alt="Nazia Islam" class="hero-photo">
       <span class="hero-status-dot"></span>
     </div>
 
     <div class="hero-eyebrow"><span class="dot"></span> Open to opportunities · May 2026</div>
     <h1><span class="grad-text" style="background: linear-gradient(135deg,#800020,#c0392b,#800020); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Nazia Islam</span><br>Builds Intelligent<br>Systems.</h1>
     <div class="color-bar"></div>
-    <p class="hero-sub">CS researcher at Texas State University — AI/GPU computing meets Identity & Access Management. I make infrastructure smarter and more secure.</p>
+    <p class="hero-sub">CS researcher at <strong style="color:#ffffff;">Texas State University</strong> — AI/GPU computing meets Identity & Access Management. I make infrastructure smarter and more secure.</p>
+    <p style="color:#cccccc; font-size:0.95rem; margin-bottom:2rem; letter-spacing:0.04em;">🎓 Texas State University &nbsp;·&nbsp; GPA: <strong style="color:#ffffff;">3.61</strong> &nbsp;·&nbsp; Computer Science</p>
     <div class="cta-row">
       <a href="work.html" class="btn btn-grad">View My Work →</a>
       <a href="contact.html" class="btn btn-outline">Get in Touch</a>
@@ -277,7 +273,7 @@ body { background: #ffffff !important; color: #1a0a0d !important; }
 
   <!-- STATS -->
   <div class="stats-row">
-    <div class="stat"><div class="stat-num">3.6</div><div class="stat-label">GPA · Texas State</div></div>
+    <div class="stat"><div class="stat-num">3.61</div><div class="stat-label">GPA · Texas State University</div></div>
     <div class="stat"><div class="stat-num">100%</div><div class="stat-label">GPULLM benchmark accuracy</div></div>
     <div class="stat"><div class="stat-num">v8.1</div><div class="stat-label">SailPoint certified</div></div>
     <div class="stat"><div class="stat-num">2+</div><div class="stat-label">Years enterprise IAM</div></div>
