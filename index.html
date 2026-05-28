@@ -7,22 +7,23 @@
 <title>Nazia — Portfolio</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* LIGHT GREEN BACKGROUND OVERRIDE */
-:root { --bg: #e4f5ec; --surface: #d2ede0; }
-body { background: #e4f5ec !important; }
+/* WHITE & MAROON BACKGROUND */
+:root { --bg: #ffffff; --surface: #f9f0f2; }
+body { background: #ffffff !important; color: #1a0a0d !important; }
 
-/* ── VIDEO BACKGROUND ── */
+/* IMAGE BACKGROUND */
 .hero-video-wrap {
   position: absolute;
   inset: 0;
   overflow: hidden;
   z-index: 0;
 }
-.hero-video-wrap video {
+.hero-bg-img {
   width: 100%; height: 100%;
   object-fit: cover;
-  opacity: 0.28;
-  filter: saturate(0.7) brightness(0.9);
+  object-position: center 30%;
+  opacity: 0.45;
+  filter: saturate(0.8) brightness(0.85);
 }
 .hero-video-wrap::after {
   content: '';
@@ -81,7 +82,7 @@ body { background: #e4f5ec !important; }
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff5f6d, #4a6fff, #13c49a);
+  background: linear-gradient(135deg, #800020, #c0392b, #ffffff);
   z-index: 1;
 }
 .hero-photo-wrap::after {
@@ -89,7 +90,7 @@ body { background: #e4f5ec !important; }
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: #e4f5ec;
+  background: #ffffff;
   z-index: 1;
 }
 .hero-photo {
@@ -103,7 +104,7 @@ body { background: #e4f5ec !important; }
   width: 14px; height: 14px;
   border-radius: 50%;
   background: #13c49a;
-  border: 2.5px solid #e4f5ec;
+  border: 2.5px solid #ffffff;
   z-index: 4;
   animation: pulse-dot 2.5s ease-in-out infinite;
 }
@@ -213,11 +214,9 @@ body { background: #e4f5ec !important; }
 
 <!-- HERO -->
 <section class="hero">
-  <!-- VIDEO BACKGROUND (replace src with your own video file) -->
+  <!-- BACKGROUND IMAGE -->
   <div class="hero-video-wrap">
-    <video autoplay muted loop playsinline>
-      <source src="assets/video/bg.mp4" type="video/mp4">
-    </video>
+    <img src="grad_pic2.jpeg" alt="" class="hero-bg-img">
   </div>
   <div class="hero-glow"></div>
 
@@ -233,7 +232,7 @@ body { background: #e4f5ec !important; }
     </div>
 
     <div class="hero-eyebrow"><span class="dot"></span> Open to opportunities · May 2026</div>
-    <h1><span class="grad-text">Nazia</span><br>Builds Intelligent<br>Systems.</h1>
+    <h1><span class="grad-text" style="background: linear-gradient(135deg,#800020,#c0392b,#800020); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">Nazia Islam</span><br>Builds Intelligent<br>Systems.</h1>
     <div class="color-bar"></div>
     <p class="hero-sub">CS researcher at Texas State University — AI/GPU computing meets Identity & Access Management. I make infrastructure smarter and more secure.</p>
     <div class="cta-row">
