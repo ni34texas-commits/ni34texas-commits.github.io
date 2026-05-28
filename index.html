@@ -1,115 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nazia — CS researcher specializing in AI/GPU computing and Identity & Access Management.">
-  <title>Nazia — Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
-      padding: 7rem 2rem 4rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-glow {
-      position: absolute; inset: 0; pointer-events: none;
-      background:
-        radial-gradient(ellipse 60% 50% at 20% 40%, rgba(255,95,109,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 80% 60%, rgba(74,111,255,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 50% 90%, rgba(19,196,154,0.06) 0%, transparent 60%);
-    }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--muted);
-      margin-bottom: 2rem;
-    }
-    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c3); display: inline-block; animation: blink 2s ease-in-out infinite; }
-    @keyframes blink { 0%,100%{opacity:0.4} 50%{opacity:1} }
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(3.2rem, 9vw, 6.5rem);
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-    .hero-sub {
-      font-size: 1.1rem; color: var(--muted);
-      max-width: 560px; margin: 0 auto 2.5rem;
-      font-weight: 300; line-height: 1.8;
-    }
-    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nazia — CS researcher specializing in AI/GPU computing and Identity & Access Management.">
+<title>Nazia — Portfolio</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── VIDEO BACKGROUND ── */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-video-wrap video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  filter: saturate(0.7) brightness(0.9);
+}
+.hero-video-wrap::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,18,0.55) 0%,
+    rgba(10,10,18,0.30) 50%,
+    rgba(10,10,18,0.75) 100%
+  );
+}
 
-    /* COLOR BAR */
-    .color-bar {
-      width: 60px; height: 4px; border-radius: 4px;
-      background: var(--grad);
-      margin: 0 auto 2rem;
-    }
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 7rem 2rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-glow {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 40%, rgba(255,95,109,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 60%, rgba(74,111,255,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 50% 90%, rgba(19,196,154,0.05) 0%, transparent 60%);
+}
 
-    /* DUAL TRACK */
-    .track-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 5rem;
-    }
-    @media (max-width: 640px) { .track-grid { grid-template-columns: 1fr; } }
-    .track-card {
-      border-radius: 1.25rem;
-      padding: 2.25rem;
-      border: 1px solid var(--border);
-      position: relative; overflow: hidden;
-    }
-    .track-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    }
-    .track-ai::before { background: linear-gradient(90deg, var(--c3), var(--c4)); }
-    .track-iam::before { background: linear-gradient(90deg, var(--c1), var(--c2)); }
-    .track-ai { background: rgba(67,230,181,0.04); }
-    .track-iam { background: rgba(255,95,109,0.04); }
-    .track-icon {
-      font-size: 2rem; margin-bottom: 1rem;
-    }
-    .track-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem; font-weight: 700;
-      margin-bottom: 0.6rem;
-    }
-    .track-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
-    .track-card .pill-row { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+/* ── PROFILE PHOTO ── */
+.hero-photo-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.75rem;
+}
+.hero-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  /* gradient ring */
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,0.08),
+    0 0 0 5px transparent,
+    0 8px 32px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 2;
+}
+/* outer gradient ring using pseudo on wrapper */
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff5f6d, #4a6fff, #13c49a);
+  z-index: 1;
+}
+.hero-photo-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: var(--bg, #0a0a12);
+  z-index: 1;
+}
+.hero-photo {
+  z-index: 3;
+  position: relative;
+}
+/* online dot */
+.hero-status-dot {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: #13c49a;
+  border: 2.5px solid var(--bg, #0a0a12);
+  z-index: 4;
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100%{ box-shadow: 0 0 0 0 rgba(19,196,154,0.4); }
+  50%    { box-shadow: 0 0 0 6px rgba(19,196,154,0); }
+}
 
-    /* QUICK STATS */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 1rem;
-      overflow: hidden;
-      margin-bottom: 3rem;
-    }
-    .stat { background: var(--surface); padding: 1.75rem 1.5rem; }
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 2.2rem; font-weight: 800;
-      background: var(--grad);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-      line-height: 1;
-    }
-    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.04em; }
-  </style>
+/* hero content z-index over video */
+.hero > * { position: relative; z-index: 2; }
+.hero > div { position: relative; z-index: 2; }
+
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--c3); display: inline-block; animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.2rem, 9vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.hero-sub {
+  font-size: 1.1rem; color: var(--muted);
+  max-width: 560px; margin: 0 auto 2.5rem;
+  font-weight: 300; line-height: 1.8;
+}
+.cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── COLOR BAR ── */
+.color-bar {
+  width: 60px; height: 4px; border-radius: 4px;
+  background: var(--grad);
+  margin: 0 auto 2rem;
+}
+
+/* ── DUAL TRACK ── */
+.track-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+@media (max-width: 640px) { .track-grid { grid-template-columns: 1fr; } }
+.track-card {
+  border-radius: 1.25rem;
+  padding: 2.25rem;
+  border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.track-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.track-ai::before { background: linear-gradient(90deg, var(--c3), var(--c4)); }
+.track-iam::before { background: linear-gradient(90deg, var(--c1), var(--c2)); }
+.track-ai { background: rgba(67,230,181,0.04); }
+.track-iam { background: rgba(255,95,109,0.04); }
+.track-icon { font-size: 2rem; margin-bottom: 1rem; }
+.track-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem; font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.track-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+.track-card .pill-row { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+/* ── QUICK STATS ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+.stat { background: var(--surface); padding: 1.75rem 1.5rem; }
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem; font-weight: 800;
+  background: var(--grad);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1;
+}
+.stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; letter-spacing: 0.04em; }
+</style>
 </head>
 <body>
-
 <nav>
   <a href="index.html" class="nav-logo">NZ.</a>
   <ul class="nav-links">
@@ -122,8 +209,27 @@
 
 <!-- HERO -->
 <section class="hero">
+  <!-- VIDEO BACKGROUND (replace src with your own video file) -->
+  <div class="hero-video-wrap">
+    <video autoplay muted loop playsinline>
+      <source src="assets/video/bg.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-glow"></div>
-  <div style="position:relative">
+
+  <div style="position:relative; z-index:2;">
+    <!-- PROFILE PHOTO -->
+    <div class="hero-photo-wrap">
+      <!-- Replace 'assets/images/profile.jpg' with your actual photo path -->
+      <img
+        src="assets/images/profile.jpg"
+        alt="Nazia Islam"
+        class="hero-photo"
+        onerror="this.src='https://ui-avatars.com/api/?name=NZ&background=13c49a&color=0a0a12&size=150&bold=true&font-size=0.45'"
+      >
+      <span class="hero-status-dot"></span>
+    </div>
+
     <div class="hero-eyebrow"><span class="dot"></span> Open to opportunities · May 2026</div>
     <h1><span class="grad-text">Nazia</span><br>Builds Intelligent<br>Systems.</h1>
     <div class="color-bar"></div>
@@ -185,6 +291,5 @@
 <footer>
   <p>© 2026 Nazia &nbsp;·&nbsp; <a href="mailto:naziaislam202519@gmail.com">naziaislam202519@gmail.com</a> &nbsp;·&nbsp; <a href="https://github.com/ni34texas-commits" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
 </footer>
-
 </body>
 </html>
