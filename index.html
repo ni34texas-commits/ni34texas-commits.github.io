@@ -7,9 +7,9 @@
 <title>Nazia — Portfolio</title>
 <link rel="stylesheet" href="style.css">
 <style>
-/* BLACK BACKGROUND OVERRIDE */
-:root { --bg: #000000; --surface: #0a0a0a; }
-body { background: #000000 !important; }
+/* LIGHT GREEN BACKGROUND OVERRIDE */
+:root { --bg: #e4f5ec; --surface: #d2ede0; }
+body { background: #e4f5ec !important; }
 
 /* ── VIDEO BACKGROUND ── */
 .hero-video-wrap {
@@ -59,8 +59,8 @@ body { background: #000000 !important; }
   margin-bottom: 1.75rem;
 }
 .hero-photo {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -89,7 +89,7 @@ body { background: #000000 !important; }
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: #000000;
+  background: #e4f5ec;
   z-index: 1;
 }
 .hero-photo {
@@ -103,7 +103,7 @@ body { background: #000000 !important; }
   width: 14px; height: 14px;
   border-radius: 50%;
   background: #13c49a;
-  border: 2.5px solid #000000;
+  border: 2.5px solid #e4f5ec;
   z-index: 4;
   animation: pulse-dot 2.5s ease-in-out infinite;
 }
@@ -224,12 +224,10 @@ body { background: #000000 !important; }
   <div style="position:relative; z-index:2;">
     <!-- PROFILE PHOTO -->
     <div class="hero-photo-wrap">
-      <!-- Replace 'assets/images/profile.jpg' with your actual photo path -->
       <img
-        src="assets/images/profile.jpg"
+        src="pic_grad.jpeg"
         alt="Nazia Islam"
         class="hero-photo"
-        onerror="this.src='https://ui-avatars.com/api/?name=NZ&background=13c49a&color=0a0a12&size=150&bold=true&font-size=0.45'"
       >
       <span class="hero-status-dot"></span>
     </div>
